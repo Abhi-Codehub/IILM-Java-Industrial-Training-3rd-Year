@@ -1,0 +1,177 @@
+Code 1
+Creating behaviors (methods)
+
+class Student {
+    void study(){ // creating a method
+        // logic 
+        System.out.println("Student is studying");
+    }
+    void sleep() { // creating a method
+        System.out.println("Student is sleeping");
+
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    Student s1 = new Student();
+	    s1.study(); // invoking methods 
+	    s1.sleep(); // invoking methods 
+		
+	}
+}
+
+Code 2 
+// reference variables
+class Student {
+    int marks = 80;
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Student s1 = new Student(); // reference variable -- s1(object) 
+		System.out.println(s1.marks);
+		}
+}
+
+Code 3
+// multiple references
+
+class Student {
+    int marks = 80;
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Student s1 = new Student(); // reference variable -- s1(object) 
+		Student s2 = s1; // same object
+		Student s3 = s2; // same object
+		s3.marks = 100;
+		System.out.println(s3.marks);
+		}
+}
+
+Code 4
+// dereferencing
+class Student {
+    int marks = 80;
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		Student s1 = new Student(); // reference variable -- s1(object) 
+		Student s2 = s1; // same object
+		
+		s2 = null; // dereferencing
+		System.out.println(s2.marks);
+		}
+}
+Output:- Exception in thread "main" java.lang.NullPointerException: Cannot read field "marks" because "<local2>" is null
+        at Main.main(Main.java:13)
+
+Code 5
+Pass by reference concepts
+
+// -- Java is pass by value
+// -- the value passed is the reference
+// -- Changes made to any object are reflected outside method
+
+// Pass by reference concepts
+class Student {
+    int marks = 80;
+}
+
+public class Main
+{
+    static void updateMarks(Student s) {
+        s.marks += 2; 
+        
+    }
+	public static void main(String[] args) {
+		Student s1 = new Student();
+		updateMarks(s1); 
+		
+		System.out.println(s1.marks); // 80 + 2 == 82
+		}
+}
+
+Code 6
+// Lists of objects 
+import java.util.*;
+class Student {
+    int id;
+    
+    Student(int id) {
+        this.id = id;
+    }
+}
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    // syntax of ArrayList
+	    // List <datatype> list_name = new ArrayList<>();
+		List<Student> students = new ArrayList<>();
+		
+	    students.add(new Student(101));	
+		students.add(new Student(102));
+		
+		for(Student s: students) {
+		    System.out.println(s.id);
+		}
+	}
+}
+
+Code 7
+Dictionaries of Objects 
+// Dictionaries of Objects 
+import java.util.*;
+class Student {
+    int id;
+    
+    Student(int id) {
+        this.id = id;
+    }
+}
+
+
+public class Main
+{
+	public static void main(String[] args) {
+	    // syntax of ArrayList
+	    // List <datatype> list_name = new ArrayList<>();
+		Map<Integer, Student> map = new HashMap<>();
+		
+	    map.put(1, new Student(101));	
+		map.put(2, new Student(102));
+		
+		System.out.println(map.get(1).id);
+		System.out.println(map.get(3).id);
+		
+	}
+}
+Output :
+101
+Exception in thread "main" java.lang.NullPointerException: Cannot read field "id" because the return value of "java.util.Map.get(Object)" is null
+        at Main.main(Main.java:23)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
