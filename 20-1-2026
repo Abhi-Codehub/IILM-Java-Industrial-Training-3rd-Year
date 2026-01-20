@@ -34,3 +34,33 @@ public class Main
 	}
 }
 
+// Abstraction 
+// Abstraction means hiding the implementation and showing only 
+// the neccessary essentials features 
+// abstract class -- class cannot be initialized and it is formed using absract keyword
+// abstract method -- no body only the implementation is there
+
+// Code 2 -- 
+abstract class Vehicle {
+    abstract void start();
+}
+
+class Car extends Vehicle {
+    void start() {
+        System.out.println("Car starts");
+    }
+}
+class Bike extends Vehicle {
+    void start() {
+        System.out.println("Bike starts");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Vehicle v1 = new Car();
+        Vehicle v2 = new Bike();
+        v1.start();
+        v2.start();
+    }
+}
