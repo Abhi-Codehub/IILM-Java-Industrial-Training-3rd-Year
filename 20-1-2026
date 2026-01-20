@@ -1,0 +1,36 @@
+// Encapsualtion means wrapping up the data (functions, Methods, variables, object) 
+// into a single unit called class and restrictions of the data access using access modifiers
+// public private protected
+// need for Encapsualtion 
+// -- data security 
+// -- Controlled access 
+// -- validation before the data change 
+// -- Code maintainability 
+
+// Code 1 -- Getters and setters 
+
+class BankAccount {
+    int bankBalance;
+    // setters 
+    public void setBalance(int amount) {
+        if(amount >= 0) {
+           bankBalance = amount;
+        } else {
+            System.out.println("Invalid amount");
+        }
+    }
+    // getters 
+    public int getBalance() {
+        return bankBalance;
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    BankAccount acc = new BankAccount();
+	    acc.setBalance(5000);
+	    System.out.println(acc.getBalance());
+	}
+}
+
