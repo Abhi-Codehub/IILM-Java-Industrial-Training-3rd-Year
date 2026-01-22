@@ -49,7 +49,7 @@ public class Main
 --> in instance we make multiple copies
 
 Code3:-
-// Aggregation & Dependency: Connecting classes, accessing aggregated attributes
+// Aggregation: Connecting classes, accessing aggregated attributes, encapsulation in aggregation.
 // Address
 class Address { // class 
     private String city; // instance 
