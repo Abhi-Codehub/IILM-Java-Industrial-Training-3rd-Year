@@ -83,3 +83,26 @@ public class Main
 	}
 }
 
+Code:- 4
+// Dependency
+// One class is dependent on another class temporarily 
+// No Permanent storage is there
+class Payment { // netflix
+    void pay() {
+        System.out.println("Payment successful");
+    }
+}
+class Gpay {
+    void processPayment(Payment p) { // service provider
+        p.pay();
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		Gpay pay = new Gpay();
+		Payment payment = new Payment();
+		
+		pay.processPayment(payment);
+	}
+}
