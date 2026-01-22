@@ -22,3 +22,31 @@ public class Main
 		s2.display();
 	}
 }
+
+static method
+Code 2:-
+// static method
+class Square {
+    static int square(int num) {
+        return num * num;
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    System.out.println(Square.square(5));
+	}
+}
+// it is called using the class name
+
+// differnce between static and instance variables and methods 
+--> Static is accessed by class name
+--> instance is accessed by object name
+--> in static no need to use this keyword
+--> in instance we need to use this keyword 
+--> in static we make single copy
+--> in instance we make multiple copies
+
+
+
