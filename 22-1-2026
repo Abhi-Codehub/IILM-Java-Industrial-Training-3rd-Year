@@ -48,5 +48,38 @@ public class Main
 --> in static we make single copy
 --> in instance we make multiple copies
 
-
+Code3:-
+// Aggregation & Dependency: Connecting classes, accessing aggregated attributes
+// Address
+class Address { // class 
+    private String city; // instance 
+    Address (String city) { // constructor
+        this.city = city;
+    }
+    public String getCity() {
+        return city;
+    }
+}
+// Student class (Aggregate Address)
+class Student {
+    private String name;
+    private Address address; // Aggregation accessmodififer ClassName variableName
+    
+    Student(String name, Address address) {
+        this.name = name;
+        this.address = address;
+    }
+    void display() {
+        System.out.println(name + " lives " + address.getCity());
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    Address add = new Address("Delhi");
+	    Student s1 = new Student("Aman", add);
+	    
+	    s1.display();
+	}
+}
 
