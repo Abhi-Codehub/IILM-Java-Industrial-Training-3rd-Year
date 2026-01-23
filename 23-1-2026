@@ -21,3 +21,30 @@ public class Main
 		
 	}
 }
+
+// Multi-Level inheritance 
+Code:-2 
+class Vehicle { // parent 
+    void start() {
+        System.out.println("Vehicle Starts");
+    }
+}
+class Bike extends Vehicle { // child
+    void drive() {
+        System.out.println("Bike running");
+    }
+}
+class speedometer extends Bike {
+    void speed() {
+        System.out.println("200km/hr");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+	    speedometer s = new speedometer();
+	    s.start();
+	    s.drive();
+	    s.speed();
+	}
+}
