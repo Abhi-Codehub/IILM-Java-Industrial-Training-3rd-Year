@@ -99,3 +99,26 @@ public class Main
 		ch.freelancing();
 	}
 }
+
+Code 5:
+// Method overriding
+
+class CollegeStudent {
+    void task() {
+        System.out.println("Eating food");
+    }
+}
+class Student extends CollegeStudent {
+    @Override
+    void task() {
+        System.out.println("Paani pee raha hai");
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		CollegeStudent obj = new Student();
+		obj.task();
+	}
+}
