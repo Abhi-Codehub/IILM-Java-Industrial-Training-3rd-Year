@@ -57,3 +57,23 @@ public class Main
 		
 	}
 }
+
+Code 3:- 
+// Inheriting attributes // variable 
+
+class University {
+    String universityName = "IILM University";
+}
+
+class College extends University {
+    void displayUniversityName() {
+        System.out.println("University: " + universityName);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		College c = new College();
+		c.displayUniversityName();
+	}
+}
