@@ -77,3 +77,25 @@ public class Main
 		c.displayUniversityName();
 	}
 }
+
+Code 4:
+// Inheriting methods 
+
+class Parent {
+    void pockeyMoney() {
+        System.out.println("Pockey Money credit");
+    }
+}
+class child extends Parent{
+    void freelancing() {
+        System.out.println("Kudh ka paisa");
+    }
+}
+public class Main
+{
+	public static void main(String[] args) {
+		child ch = new child();
+		ch.pockeyMoney();
+		ch.freelancing();
+	}
+}
