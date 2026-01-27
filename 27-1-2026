@@ -15,3 +15,47 @@ public class Main
 		
 	}
 }
+
+Code2:- 
+// Throw keyword
+// balance 5000
+class Bank {
+    void withdraw(int amount) {
+        if(amount > 5000) {
+            throw new ArithmeticException("Insufficient balance");
+        }
+        System.out.println("withdraw Successful");
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Bank b = new Bank();
+        b.withdraw(4000);
+    }
+}
+Output :- withdraw Successful
+
+Code 2:- With exception error 
+// Throw keyword
+// balance 5000
+class Bank {
+    void withdraw(int amount) {
+        if(amount > 5000) {
+            throw new ArithmeticException("Insufficient balance");
+        }
+        System.out.println("withdraw Successful");
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        Bank b = new Bank();
+        b.withdraw(6000);
+    }
+}
+output:- Exception in thread "main" java.lang.ArithmeticException: Insufficient balance
+        at Bank.withdraw(Main.java:6)
+        at Main.main(Main.java:16)
