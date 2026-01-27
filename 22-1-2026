@@ -24,6 +24,8 @@ public class Main
 }
 
 static method
+// In Java, the static keyword is used to create methods that belongs to the class rather than any specific instance of the class. 
+// Any method that uses the static keyword is referred to as a static method.
 Code 2:-
 // static method
 class Square {
