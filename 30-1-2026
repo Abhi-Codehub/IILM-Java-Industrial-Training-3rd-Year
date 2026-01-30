@@ -20,5 +20,36 @@ class Solution {
         return result;
     }
 }
+// TC:- O(n^2)
+// SC:- O(1)
+
+Optimal Approach
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // LOGIC 
+        int [] result = new int[2];
+        // default value
+        result[0] = result[1] = -1;
+
+       // key value pair store 
+       HashMap<Integer, Integer> map = new HashMap<>();
+
+       for(int i = 0; i < nums.length; i++) {
+            int currently = nums[i];
+            int compliment = target - currently;
+
+        if(map.containsKey(compliment)) {
+            result[0] = map.get(compliment);
+            result[1] = i;
+            return result;
+        }  
+        map.put(nums[i], i);  
+       }
+       return result;
+    }
+}
+
+// TC:- O(N)
+// SC:- O(N)
 
 
