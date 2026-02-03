@@ -33,3 +33,12 @@ class Solution {
 }
 TC = O(N)
 SC = O(1)
+
+class Solution {
+    public int majorityElement(int[] nums) {
+        Arrays.sort(nums);
+        return nums[nums.length / 2];
+    }
+}
+TC = O(NLogN)
+SC = O(1)
