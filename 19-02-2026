@@ -1,0 +1,66 @@
+LeetCode 83 
+Remove Duplicates from Sorted LL 
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if(head == null){
+            return head;
+        }
+        ListNode prev = head;
+        ListNode temp = head.next;
+
+        while(temp != null) {
+            if(temp.val == prev.val) {
+                temp = temp.next;
+                continue;
+            }
+            prev.next = temp;
+            prev = temp;
+            temp = temp.next;
+        }
+        prev.next = null;
+        return head;
+    }
+}
+
+LeetCode 82
+Remove Duplicates from LL 2
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        ListNode prev = dummy;
+
+        while(head != null) {
+            if(head.next != null && head.val == head.next.val) {
+                while(head.next != null && head.val == head.next.val) {
+                    head = head.next;       
+                }
+                prev.next = head.next;
+            } else {
+                prev = prev.next;
+            }
+            head = head.next;
+        }
+        return dummy.next;
+    }
+}
