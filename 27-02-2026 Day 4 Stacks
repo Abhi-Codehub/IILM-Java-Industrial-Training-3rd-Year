@@ -1,0 +1,25 @@
+LeetCode 1249
+Minimum Remove To make Valid Paranthesis
+class Solution {
+    public String minRemoveToMakeValid(String s) {
+        StringBuilder ans = new StringBuilder(s);
+        Stack<Integer> st = new Stack<>();
+
+        for(int i = 0; i < s.length(); i++) {
+            if(s.charAt(i) == '(') {
+                st.push(i);
+            } else if(s.charAt(i) == ')') {
+                if(!st.isEmpty()) {
+                    st.pop();   
+                } else {
+                    ans.replace(i, i+1, " ");
+                }    
+            }
+        }
+        while(!st.isEmpty()) {
+            int index = st.pop();
+            ans.replace(index, index+1, " ");
+        }
+        return ans.toString().replaceAll(" ","");
+    }
+}
