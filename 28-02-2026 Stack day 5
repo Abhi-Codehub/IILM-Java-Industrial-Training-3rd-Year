@@ -22,3 +22,102 @@ class StockSpanner {
  * StockSpanner obj = new StockSpanner();
  * int param_1 = obj.next(price);
  */
+
+LeetCode 
+84 Largest Rectangle in histogram 
+Using Stacks 
+class Solution {
+    
+    // Function to find next smaller element indices
+    public int[] nextSmaller(int[] arr) {
+        int n = arr.length;
+        int[] nextS = new int[n];
+        Arrays.fill(nextS, n);
+        
+        Stack<Integer> stack = new Stack<>();
+        
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && arr[i] < arr[stack.peek()]) {
+                nextS[stack.pop()] = i;
+            }
+            stack.push(i);
+        }
+        
+        return nextS;
+    }
+    
+    // Function to find previous smaller element indices
+    public int[] prevSmaller(int[] arr) {
+        int n = arr.length;
+        int[] prevS = new int[n];
+        Arrays.fill(prevS, -1);
+        
+        Stack<Integer> stack = new Stack<>();
+        
+        for (int i = 0; i < n; i++) {
+            while (!stack.isEmpty() && arr[i] < arr[stack.peek()]) {
+                stack.pop();
+            }
+            if (!stack.isEmpty()) {
+                prevS[i] = stack.peek();
+            }
+            stack.push(i);
+        }
+        
+        return prevS;
+    }
+    
+    // Main function for LeetCode
+    public int largestRectangleArea(int[] heights) {
+        
+        int[] prevS = prevSmaller(heights);
+        int[] nextS = nextSmaller(heights);
+        
+        int maxArea = 0;
+        
+        for (int i = 0; i < heights.length; i++) {
+            int width = nextS[i] - prevS[i] - 1;
+            int area = heights[i] * width;
+            maxArea = Math.max(maxArea, area);
+        }
+        
+        return maxArea;
+    }
+}
+
+Using prefix and suffix 
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        int n = heights.length;
+        if (n == 0)
+            return 0;
+        int [] left = new int [n];    
+        int [] right = new int [n];  
+        int maxArea = 0;
+
+        left [0] = -1;
+        right[n-1] = n;
+
+        for (int i=0; i<n; i++ ){
+              int prev = i-1; // for transversing in the left so we have to decrement the index 
+                while(prev>=0 && heights[prev]>= heights[i]) {
+                prev = left[prev];
+            }
+            left[i] = prev;
+        }
+
+        for(int i = n-2; i>=0; i--){
+            int prev = i+1; // for transversing in the right so we have to increment the index 
+              while (prev<n && heights[prev]>= heights[i]){
+                  prev = right[prev];
+              }
+              right[i] = prev;
+        }
+
+        for (int i = 0; i<n; i++){
+            int width = right[i] - left[i] - 1;
+            maxArea = Math.max(maxArea, heights[i] * width);
+            }
+            return maxArea;
+    }
+}
